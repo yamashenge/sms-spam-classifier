@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Classifier</title>
+    <style>
+        body {
+            background-color: #A4D8E1; 
+            color: black; 
+            font-family: Arial, sans-serif;
+            text-align: center; 
+            padding: 50px; 
+        }
+        textarea {
+            border-radius: 5px; 
+            padding: 10px; 
+            width: 80%; 
+        }
+        input[type="submit"] {
+            background-color: #ff6f61; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px;
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        input[type="submit"]:hover {
+            background-color: #ff4c3b; 
+        }
+    </style>
+</head>
+<body>
+    <h1>SMS Spam Classifier</h1>
+    <form method="POST">
+        <textarea name="message" rows="4" cols="50" placeholder="Enter your SMS message here...">{{ request.form.message }}</textarea><br>
+        <input type="submit" value="Classify">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
